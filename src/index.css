@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Dark theme (default) — metallic dark violet */
+  --color-night: #08060e;
+  --color-night-soft: #0e0a18;
+  --color-mist: #e9e6f3;
+  --color-mist-dim: #9b95b3;
+  --color-brand: #6d28d9;
+  --color-brand-soft: #ab9ce0;
+  --color-royal: #2f5bff;
+  --color-royal-soft: #7d95ff;
+  --color-ember: #ff8a2a;
+  --color-edge: rgba(233, 230, 243, 0.1);
+  --color-veil: rgba(233, 230, 243, 0.05);
+}
+
+:root {
+  color-scheme: dark;
+  --glass-bg: linear-gradient(160deg, rgba(190, 175, 235, 0.08), rgba(190, 175, 235, 0.02));
+  --glass-border: rgba(200, 190, 235, 0.12);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.38);
+  --glass-deep-bg: linear-gradient(
+    160deg,
+    rgba(109, 40, 217, 0.16),
+    rgba(47, 91, 255, 0.06) 55%,
+    rgba(190, 175, 235, 0.03)
+  );
+  --grid-line: rgba(200, 190, 235, 0.045);
+  --glare: rgba(220, 210, 250, 0.09);
+  --glow: radial-gradient(circle at center, rgba(109, 40, 217, 0.16), rgba(47, 91, 255, 0.08) 45%, transparent 70%);
+  --text-metal: linear-gradient(105deg, #d8cef7 0%, #8458e8 38%, #4c1d95 68%, #b18cff 92%, #ff8a2a 118%);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --color-night: #f1eff9;
+  --color-night-soft: #ffffff;
+  --color-mist: #1b1526;
+  --color-mist-dim: #575070;
+  --color-brand: #5b21b6;
+  --color-brand-soft: #6d28d9;
+  --color-royal: #2743d6;
+  --color-royal-soft: #3450e0;
+  --color-ember: #d96400;
+  --color-edge: rgba(27, 21, 38, 0.13);
+  --color-veil: rgba(27, 21, 38, 0.05);
+
+  --glass-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.45));
+  --glass-border: rgba(27, 21, 38, 0.12);
+  --glass-shadow: 0 8px 28px rgba(60, 35, 120, 0.12);
+  --glass-deep-bg: linear-gradient(
+    160deg,
+    rgba(109, 40, 217, 0.12),
+    rgba(39, 67, 214, 0.06) 55%,
+    rgba(255, 255, 255, 0.55)
+  );
+  --grid-line: rgba(27, 21, 38, 0.06);
+  --glare: rgba(109, 40, 217, 0.07);
+  --glow: radial-gradient(circle at center, rgba(91, 33, 182, 0.1), rgba(39, 67, 214, 0.05) 45%, transparent 70%);
+  --text-metal: linear-gradient(105deg, #35156b 0%, #5b21b6 40%, #8b4dff 72%, #3b1a78 95%, #d96400 120%);
+}
+
+html {
+  background-color: var(--color-night);
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-night text-mist font-body antialiased;
+  overflow-x: hidden;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+/* Native cursor is hidden only while the JS bat cursor is mounted. */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor,
+  .custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-night);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-brand), var(--color-royal));
+  border-radius: 8px;
+  border: 2px solid var(--color-night);
+}
+
+/* ---------- Surfaces ---------- */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-deep {
+  background: var(--glass-deep-bg);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.text-gradient {
+  background-image: var(--text-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+}
+
+/* ---------- Ambient orbs ---------- */
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+@keyframes drift-a {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(12vw, 14vh) scale(1.25);
+  }
+}
+@keyframes drift-b {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+  }
+  100% {
+    transform: translate(-10vw, -8vh) scale(0.9);
+  }
+}
+@keyframes drift-c {
+  0% {
+    transform: translate(0, 0) scale(0.95);
+  }
+  100% {
+    transform: translate(-6vw, 10vh) scale(1.2);
+  }
+}
+
+.orb-a {
+  animation: drift-a 26s ease-in-out infinite alternate;
+}
+.orb-b {
+  animation: drift-b 34s ease-in-out infinite alternate;
+}
+.orb-c {
+  animation: drift-c 30s ease-in-out infinite alternate;
+}
+
+/* ---------- Marquee ---------- */
+
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Motion safety ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .orb-a,
+  .orb-b,
+  .orb-c,
+  .marquee-track {
+    animation: none;
+  }
+}
