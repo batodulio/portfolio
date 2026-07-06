@@ -4,7 +4,7 @@ import { BatIcon } from "./BatIcon";
 
 /**
  * Replaces the native cursor with a bat that glides with the pointer,
- * turning ember and growing over interactive elements.
+ * turning Energy Orange and growing over interactive elements.
  * Mounts only on fine-pointer devices without reduced motion.
  */
 export function BatCursor() {
@@ -41,9 +41,9 @@ export function BatCursor() {
         <motion.div
           animate={{ scale: hovering ? 1.3 : 1, rotate: hovering ? -6 : 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className={hovering ? "text-ember" : "text-brand-soft"}
+          className={hovering ? "text-orange" : "text-blue"}
         >
-          <BatIcon className="w-11 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]" />
+          <BatIcon className="w-11 drop-shadow-[0_3px_0_rgba(34,34,59,0.15)]" />
         </motion.div>
       </div>
     </motion.div>

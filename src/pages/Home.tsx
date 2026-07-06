@@ -1,172 +1,150 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PageTransition } from "../components/PageTransition";
-import { SectionHeading } from "../components/SectionHeading";
 import { TiltCard } from "../components/TiltCard";
-import { Reveal } from "../components/Reveal";
 import { Magnetic } from "../components/Magnetic";
 import { BatIcon } from "../components/BatIcon";
 import { ArrowUpRight, Linkedin } from "../components/Icons";
 import { profile, pillars, techMarquee } from "../data/profile";
 
-const heroStagger = {
+const PILLAR_ACCENTS = ["var(--color-blue)", "var(--color-green)", "var(--color-orange)"];
+const TAG_STYLES = [
+  "bg-blue text-white",
+  "bg-green text-white",
+  "bg-orange text-white",
+  "bg-sky text-white",
+  "bg-purple text-white",
+  "bg-yellow text-[#22223B]",
+];
+
+const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
 };
 
-const heroItem = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } },
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
 };
 
 export default function Home() {
   return (
     <PageTransition>
-      {/* ---------- Hero ---------- */}
-      <section className="relative flex min-h-[82vh] items-center px-5 pt-28 pb-10 sm:px-6">
-        <motion.div variants={heroStagger} initial="hidden" animate="show" className="mx-auto w-full max-w-6xl">
-          <motion.div variants={heroItem} className="mb-5 flex flex-wrap items-center gap-2.5">
-            <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium tracking-wide text-mist-dim">
-              <span className="h-1.5 w-1.5 rounded-full bg-ember" />
-              {profile.role}
-            </span>
-            <span className="glass inline-flex items-center rounded-full px-4 py-1.5 text-xs font-medium tracking-wide text-mist-dim">
-              {profile.location}
-            </span>
-          </motion.div>
-
-          <motion.h1
-            variants={heroItem}
-            className="font-display text-5xl leading-[1.02] font-bold tracking-tight text-mist sm:text-7xl lg:text-8xl"
-          >
-            Batman
-            <br />
-            <span className="text-gradient">Odulio</span>
-          </motion.h1>
-
-          <motion.p variants={heroItem} className="mt-6 max-w-2xl text-base leading-relaxed text-mist-dim sm:text-xl">
-            IT Product Manager, Technology Leader, and Software Builder — integrating{" "}
-            <span className="text-mist">people, process, and technology</span> to deliver measurable operational
-            excellence across global supply chains.
-          </motion.p>
-
-          <motion.p variants={heroItem} className="mt-4 flex items-center gap-2 text-sm text-brand-soft/90 italic">
-            <BatIcon className="w-6" />
-            {profile.batLine}
-          </motion.p>
-
-          <motion.div variants={heroItem} className="mt-9 flex flex-wrap items-center gap-3.5">
-            <Magnetic>
-              <Link
-                to="/portfolio"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-royal px-7 py-3.5 font-display text-sm font-semibold text-white shadow-[0_8px_32px_rgba(109,40,217,0.35)] transition-shadow hover:shadow-[0_8px_44px_rgba(109,40,217,0.55)]"
-              >
-                Explore the work
-                <ArrowUpRight className="w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-            </Magnetic>
-            <Magnetic>
-              <button
-                type="button"
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="glass inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-display text-sm font-semibold text-mist transition-colors hover:border-brand-soft/40"
-              >
-                Get in touch
-              </button>
-            </Magnetic>
-          </motion.div>
-        </motion.div>
-
+      <div className="mx-auto flex h-full w-full max-w-6xl flex-col px-5 sm:px-8">
         <motion.div
-          aria-hidden
-          className="absolute bottom-5 left-1/2 -translate-x-1/2 text-mist-dim/60"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+          className="panel-scroll grid min-h-0 flex-1 content-center gap-6 py-4 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-10"
         >
-          <svg viewBox="0 0 24 24" className="w-5" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 4v16m0 0-5-5m5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </motion.div>
-      </section>
+          {/* ---------- Intro ---------- */}
+          <div className="relative">
+            <motion.div variants={item} className="mb-4 flex items-center gap-4">
+              <div className="relative shrink-0">
+                <img
+                  src={`${import.meta.env.BASE_URL}batman-photo-formal.jpg`}
+                  alt="Portrait of Batman Odulio"
+                  className="h-20 w-20 rounded-full border-4 border-blue object-cover shadow-[0_5px_0_rgba(34,34,59,0.15)] sm:h-24 sm:w-24"
+                />
+                <span className="blob bg-yellow -top-1 -right-1 h-4 w-4" aria-hidden />
+                <span className="blob bg-green -bottom-1 left-1 h-3 w-3" aria-hidden />
+              </div>
+              <p className="max-w-56 font-display text-[11px] font-bold tracking-[3px] text-blue uppercase sm:max-w-none">
+                IT Product Manager · Technology Leader · Software Builder
+              </p>
+            </motion.div>
 
-      {/* ---------- Pillars ---------- */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-6">
-        <SectionHeading kicker="What I bring" title="Three identities. One mission." subtitle={profile.summary} />
-        <div className="grid gap-5 md:grid-cols-3">
-          {pillars.map((pillar, i) => (
-            <Reveal key={pillar.title} delay={i * 0.12}>
-              <TiltCard className="h-full">
-                <div className="flex h-full flex-col p-6 sm:p-7">
-                  <p className="text-xs font-semibold tracking-[0.2em] text-ember uppercase">{pillar.kicker}</p>
-                  <h3 className="mt-3 font-display text-xl font-bold text-mist sm:text-2xl">{pillar.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-mist-dim">{pillar.body}</p>
-                </div>
-              </TiltCard>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+            <motion.h1
+              variants={item}
+              className="font-display text-5xl leading-[1.05] font-extrabold text-ink sm:text-6xl xl:text-7xl"
+            >
+              Batman
+              <br />
+              <span className="text-grad">Odulio</span>
+            </motion.h1>
 
-      {/* ---------- Tech marquee ---------- */}
-      <section className="py-6">
-        <div className="marquee">
-          <div className="marquee-track">
-            {[...techMarquee, ...techMarquee].map((tech, i) => (
-              <span
-                key={`${tech}-${i}`}
-                className="glass inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm whitespace-nowrap text-mist-dim"
-              >
-                <span className="h-1 w-1 rounded-full bg-brand-soft" />
-                {tech}
-              </span>
+            <motion.p variants={item} className="mt-5 max-w-xl text-sm leading-relaxed text-soft sm:text-base">
+              Integrating <strong className="font-semibold text-ink">people, process, and technology</strong> to
+              deliver measurable operational excellence across global supply chains — from {profile.location}.
+            </motion.p>
+
+            <motion.p variants={item} className="mt-3 flex items-center gap-2 text-sm font-medium text-purple italic">
+              <BatIcon className="w-6" />
+              {profile.batLine}
+            </motion.p>
+
+            <motion.div variants={item} className="relative mt-7 flex flex-wrap items-center gap-3">
+              {/* confetti dots near CTAs, per the brand guide */}
+              <span className="blob bg-yellow -top-5 left-36 h-3 w-3" aria-hidden />
+              <span className="blob bg-green -bottom-4 left-16 h-2.5 w-2.5" aria-hidden />
+              <Magnetic>
+                <Link
+                  to="/experience"
+                  className="grad-blue group inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-display text-sm font-bold text-white shadow-[0_8px_24px_rgba(26,86,196,0.4)] transition-transform hover:-translate-y-0.5"
+                >
+                  Explore the work
+                  <ArrowUpRight className="w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="grad-orange inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-display text-sm font-bold text-white shadow-[0_8px_24px_rgba(244,121,32,0.4)] transition-transform hover:-translate-y-0.5"
+                >
+                  <Linkedin className="w-4" />
+                  Connect on LinkedIn
+                </a>
+              </Magnetic>
+            </motion.div>
+          </div>
+
+          {/* ---------- Three identities, one mission ---------- */}
+          <div className="flex flex-col gap-3.5">
+            <motion.p variants={item} className="font-display text-[11px] font-bold tracking-[3px] text-soft uppercase">
+              Three identities. One mission.
+            </motion.p>
+            {pillars.map((pillar, i) => (
+              <motion.div key={pillar.title} variants={item}>
+                <TiltCard>
+                  <div className="relative overflow-hidden p-5" style={{ borderTop: `6px solid ${PILLAR_ACCENTS[i]}` }}>
+                    <span
+                      className="blob -right-8 -bottom-8 h-20 w-20 opacity-90"
+                      style={{ background: PILLAR_ACCENTS[i] }}
+                      aria-hidden
+                    />
+                    <p
+                      className="font-display text-[10px] font-bold tracking-[2px] uppercase"
+                      style={{ color: PILLAR_ACCENTS[i] }}
+                    >
+                      {pillar.kicker}
+                    </p>
+                    <h3 className="mt-1 font-display text-lg font-bold text-ink">{pillar.title}</h3>
+                    <p className="relative mt-1.5 max-w-[92%] text-[13px] leading-relaxed text-soft">{pillar.body}</p>
+                  </div>
+                </TiltCard>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* ---------- Contact ---------- */}
-      <section id="contact" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 sm:px-6">
-        <Reveal>
-          <div className="glass-deep relative overflow-hidden rounded-3xl p-8 sm:p-12">
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-[radial-gradient(500px_circle_at_80%_-20%,rgba(109,40,217,0.22),transparent)]"
-            />
-            <div className="relative grid items-center gap-8 md:grid-cols-[1.2fr_1fr]">
-              <div>
-                <p className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.25em] text-ember uppercase">
-                  <BatIcon className="w-6 text-ember/80" />
-                  Contact
-                </p>
-                <h2 className="font-display text-3xl font-bold text-mist sm:text-4xl">
-                  Send the <span className="text-gradient">signal</span>.
-                </h2>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-mist-dim sm:text-base">
-                  Open to conversations about digital products, cloud platforms, and building things that scale.
-                  Working with global teams across time zones is the day job.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <Magnetic>
-                  <a
-                    href={profile.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-brand to-royal px-6 py-4 font-display text-sm font-semibold text-white shadow-[0_8px_32px_rgba(109,40,217,0.3)]"
-                  >
-                    <span className="flex items-center gap-2.5">
-                      <Linkedin className="w-4 shrink-0" />
-                      Connect on LinkedIn
-                    </span>
-                    <ArrowUpRight className="w-4 shrink-0" />
-                  </a>
-                </Magnetic>
-                <p className="text-center text-xs text-mist-dim">linkedin.com/in/batmanodulio</p>
-              </div>
+        {/* ---------- Tech marquee ---------- */}
+        <div className="shrink-0 pb-2">
+          <div className="marquee">
+            <div className="marquee-track py-1">
+              {[...techMarquee, ...techMarquee].map((tech, i) => (
+                <span
+                  key={`${tech}-${i}`}
+                  className={`inline-flex items-center rounded-full px-4 py-1.5 font-display text-xs font-bold whitespace-nowrap ${TAG_STYLES[i % TAG_STYLES.length]}`}
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
-        </Reveal>
-      </section>
+        </div>
+      </div>
     </PageTransition>
   );
 }

@@ -1,11 +1,34 @@
+/** Full-opacity confetti blobs, dots, and triangles per the brand shape language. */
 export function AnimatedBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-      <div className="orb orb-a -top-32 -left-32 h-[34rem] w-[34rem] bg-brand/25" />
-      <div className="orb orb-b top-1/3 -right-40 h-[30rem] w-[30rem] bg-royal/20" />
-      <div className="orb orb-c -bottom-48 left-1/4 h-[28rem] w-[28rem] bg-ember/10" />
-      <div className="bg-grid absolute inset-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_120%,rgba(5,5,8,0.9),transparent)]" />
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+      {/* Corner-bleed blobs — softened so they glow through the glass */}
+      <div className="blob blob-soft bob-a bg-sky -top-24 -left-20 h-72 w-72 opacity-70" />
+      <div className="blob blob-soft bob-b bg-orange -right-28 -bottom-32 h-96 w-96 opacity-60" />
+      <div className="blob blob-soft bob-b bg-purple top-[15%] right-[8%] h-52 w-52 opacity-45" />
+      <div className="blob blob-soft bob-b bg-yellow top-[58%] -left-16 h-44 w-44 opacity-60" />
+      {/* Scattered confetti dots */}
+      <div className="blob bg-yellow top-16 right-36 h-4 w-4" />
+      <div className="blob bg-green top-36 right-20 h-3 w-3" />
+      <div className="blob bg-purple right-64 bottom-24 h-3.5 w-3.5" />
+      <div className="blob bg-sky bottom-40 left-[45%] h-3 w-3" />
+      {/* Triangles */}
+      <div
+        className="tri top-[30%] left-[8%]"
+        style={{
+          borderLeft: "10px solid transparent",
+          borderRight: "10px solid transparent",
+          borderBottom: "18px solid var(--color-yellow)",
+        }}
+      />
+      <div
+        className="tri right-[18%] bottom-[18%]"
+        style={{
+          borderLeft: "8px solid transparent",
+          borderRight: "8px solid transparent",
+          borderBottom: "14px solid var(--color-green)",
+        }}
+      />
     </div>
   );
 }

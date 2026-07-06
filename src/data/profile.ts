@@ -27,17 +27,17 @@ export const pillars: Pillar[] = [
   {
     title: "IT Product Manager",
     kicker: "Strategy → Delivery",
-    body: "Owns product strategy and delivery for global supply chain technology — warehouse platforms running in distribution centers around the world, managed end to end from roadmap to Total Cost of Ownership.",
+    body: "Product strategy and delivery for global supply chain technology — warehouse platforms in distribution centers worldwide, owned from roadmap to Total Cost of Ownership.",
   },
   {
     title: "Technology Leader",
     kicker: "Cloud & Architecture",
-    body: "Cloud solution architect by background — Azure platforms, TOGAF-aligned architectural standards, and security compliance stewarded at global scale, with mentorship of large cross-functional teams.",
+    body: "Cloud solution architect by background — Azure platforms, TOGAF-aligned standards, and security compliance stewarded at global scale.",
   },
   {
     title: "Software Builder",
     kicker: "Engineering Roots",
-    body: "Engineer at heart: end-to-end API product lifecycles, CI/CD pipelines, QA automation, and data visualization — plus published deep-learning research on Philippine language accent recognition.",
+    body: "APIs, CI/CD, QA automation, and data visualization — plus published deep-learning research on Philippine language accent recognition.",
   },
 ];
 
@@ -235,7 +235,14 @@ export const certifications = [
   "Microsoft Innovative Educator",
 ];
 
+/** Featured recognition — rendered as a celebration moment. */
+export const ceoAward = {
+  title: "P&G CEO Award",
+  detail: "Recipient for FY 2023–24 — the highest form of recognition at Procter & Gamble.",
+};
+
 export const honors = [
+  "P&G CEO Award (FY 2023–24)",
   "Cum Laude",
   "Leadership Excellence Award",
   "SM Scholar (Henry Sy Sr. Scholar)",
@@ -264,6 +271,30 @@ export const publications: Publication[] = [
   {
     title: "PLANTASTIC: A Web-Based E-Commerce System for Medicinal Plants in the Philippines",
     tag: "Web Platform",
+  },
+];
+
+export interface SpeakingEngagement {
+  role: string;
+  event: string;
+  detail: string;
+  url: string;
+}
+
+export const speaking: SpeakingEngagement[] = [
+  {
+    role: "Guest Speaker",
+    event: "Honors' Assembly — National University Philippines, Dasmariñas",
+    detail:
+      "Spoke to Senior High School honorees and their families, sharing the journey from student to young professional.",
+    url: "https://www.linkedin.com/posts/batmanodulio_maraming-salamat-national-university-philippines-ugcPost-7353978745390600193-3oMh/",
+  },
+  {
+    role: "Commencement Speaker",
+    event: "Senior High School Graduation — National University Laguna (2023)",
+    detail:
+      "Delivered the commencement address, reminding graduates that they possess “a superpower called GRIT” — and that they are the heroes of their own stories.",
+    url: "https://www.linkedin.com/posts/batmanodulio_nationaluniversityph-educationthatworks-ugcPost-7095085866506735616-h_-Y/",
   },
 ];
 
