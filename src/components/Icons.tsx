@@ -62,6 +62,13 @@ export const Award = ({ className }: IconProps) => (
   </svg>
 );
 
+export const Mic = ({ className }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={className} {...base} aria-hidden>
+    <rect x="9" y="3" width="6" height="11" rx="3" />
+    <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+  </svg>
+);
+
 export const Linkedin = ({ className }: IconProps) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
     <path d="M6.5 8.8H3.6V20h2.9V8.8ZM5 7.4a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4ZM20.4 13.9c0-3.2-1.7-5.3-4.3-5.3-1.5 0-2.5.7-3 1.6h-.1V8.8H10.2V20h2.9v-5.6c0-1.5.6-2.6 2-2.6s1.9 1.1 1.9 2.6V20h2.9l.5-6.1Z" />

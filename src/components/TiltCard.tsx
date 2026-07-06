@@ -6,7 +6,7 @@ interface TiltCardProps {
   className?: string;
 }
 
-/** Glass card that tilts in 3D toward the cursor with a moving glare. */
+/** Chunky brand card that tilts in 3D toward the cursor. */
 export function TiltCard({ children, className = "" }: TiltCardProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -18,8 +18,8 @@ export function TiltCard({ children, className = "" }: TiltCardProps) {
     const rect = ref.current.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width - 0.5;
     const py = (e.clientY - rect.top) / rect.height - 0.5;
-    rotateY.set(px * 10);
-    rotateX.set(-py * 10);
+    rotateY.set(px * 8);
+    rotateX.set(-py * 8);
     ref.current.style.setProperty("--gx", `${(px + 0.5) * 100}%`);
     ref.current.style.setProperty("--gy", `${(py + 0.5) * 100}%`);
   };
@@ -36,14 +36,13 @@ export function TiltCard({ children, className = "" }: TiltCardProps) {
         onPointerMove={handleMove}
         onPointerLeave={handleLeave}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="glass group relative h-full overflow-hidden rounded-3xl"
+        className="card group relative h-full overflow-hidden"
       >
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
-            background:
-              "radial-gradient(420px circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,0.08), transparent 45%)",
+            background: "radial-gradient(360px circle at var(--gx,50%) var(--gy,50%), var(--glare), transparent 45%)",
           }}
         />
         {children}
