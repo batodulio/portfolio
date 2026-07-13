@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PanelPage } from "../components/PanelPage";
+import { Section } from "../components/Section";
 import { Chevron } from "../components/Icons";
 import { experience, type Role } from "../data/profile";
 
@@ -58,7 +58,8 @@ function RoleCard({ role, defaultOpen = false }: { role: Role; defaultOpen?: boo
 
 export default function Experience() {
   return (
-    <PanelPage
+    <Section
+      id="experience"
       label="01 — Experience"
       title={
         <>
@@ -66,7 +67,7 @@ export default function Experience() {
         </>
       }
     >
-      <div className="space-y-8">
+      <div className="space-y-6">
         {experience.map((company, companyIndex) => (
           <div key={company.name}>
             <div className="mb-3 flex items-center gap-3">
@@ -93,6 +94,6 @@ export default function Experience() {
           </div>
         ))}
       </div>
-    </PanelPage>
+    </Section>
   );
 }

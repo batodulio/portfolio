@@ -1,12 +1,12 @@
 /** Full-opacity confetti blobs, dots, and triangles per the brand shape language. */
 export function AnimatedBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
-      {/* Corner-bleed blobs — softened so they glow through the glass */}
-      <div className="blob blob-soft bob-a bg-sky -top-24 -left-20 h-72 w-72 opacity-70" />
-      <div className="blob blob-soft bob-b bg-orange -right-28 -bottom-32 h-96 w-96 opacity-60" />
-      <div className="blob blob-soft bob-b bg-purple top-[15%] right-[8%] h-52 w-52 opacity-45" />
-      <div className="blob blob-soft bob-b bg-yellow top-[58%] -left-16 h-44 w-44 opacity-60" />
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
+      {/* Corner-bleed blobs — a subtle color wash behind the glass */}
+      <div className="blob blob-soft bob-a bg-sky -top-24 -left-20 h-72 w-72 opacity-45" />
+      <div className="blob blob-soft bob-b bg-orange -right-28 -bottom-32 h-96 w-96 opacity-40" />
+      <div className="blob blob-soft bob-b bg-purple top-[15%] right-[8%] h-52 w-52 opacity-30" />
+      <div className="blob blob-soft bob-b bg-yellow top-[58%] -left-16 h-44 w-44 opacity-40" />
       {/* Scattered confetti dots */}
       <div className="blob bg-yellow top-16 right-36 h-4 w-4" />
       <div className="blob bg-green top-36 right-20 h-3 w-3" />
