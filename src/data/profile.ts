@@ -43,6 +43,7 @@ export const pillars: Pillar[] = [
 
 export interface PassionProject {
   name: string;
+  logo: string;
   tagline: string;
   description: string;
   tech: string[];
@@ -55,6 +56,7 @@ export interface PassionProject {
 export const passionProjects: PassionProject[] = [
   {
     name: "IceBrk",
+    logo: "icebrk-logo.png",
     tagline: "Launch a ready-made, fully brandable party game in minutes.",
     description:
       "A web platform of customizable icebreaker and party games for corporate events, schools, and social gatherings — each game ships with a live Game Arena, a customization studio, and shared utilities like timers, team setup, and scorecards. Library spans Jeopardy, Would You Rather, Two Truths and a Lie, Bingo, and Scavenger Hunt.",
@@ -66,6 +68,7 @@ export const passionProjects: PassionProject[] = [
   },
   {
     name: "RunWalkRun",
+    logo: "rwr-logo.png",
     tagline: "Structure every run into timed run–walk–run intervals.",
     description:
       "A lightweight interval-training companion built around the run-walk-run method: set your run and walk durations, follow the timed cues, and build endurance while going the distance with less strain.",

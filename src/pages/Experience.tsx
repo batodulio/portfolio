@@ -4,11 +4,7 @@ import { Section } from "../components/Section";
 import { Chevron } from "../components/Icons";
 import { experience, type Role } from "../data/profile";
 
-const COMPANY_COLORS = [
-  "grad-blue",
-  "bg-gradient-to-br from-sky to-blue",
-  "bg-gradient-to-br from-purple to-blue",
-];
+const COMPANY_COLORS = ["grad-blue", "grad-green", "grad-orange"];
 
 function RoleCard({ role, defaultOpen = false }: { role: Role; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);

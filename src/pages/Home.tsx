@@ -6,14 +6,7 @@ import { ArrowUpRight, Linkedin } from "../components/Icons";
 import { profile, pillars, techMarquee } from "../data/profile";
 
 const PILLAR_ACCENTS = ["var(--color-blue)", "var(--color-green)", "var(--color-orange)"];
-const TAG_STYLES = [
-  "bg-blue text-white",
-  "bg-green text-white",
-  "bg-orange text-white",
-  "bg-sky text-white",
-  "bg-purple text-white",
-  "bg-yellow text-[#22223B]",
-];
+const TAG_STYLES = ["bg-blue text-white", "bg-green text-white", "bg-orange text-white"];
 
 const stagger = {
   hidden: {},
@@ -44,7 +37,7 @@ export default function Home() {
                   alt="Portrait of Batman Odulio"
                   className="h-20 w-20 rounded-full border-4 border-blue object-cover shadow-[0_5px_0_rgba(34,34,59,0.15)] sm:h-24 sm:w-24"
                 />
-                <span className="blob bg-yellow -top-1 -right-1 h-4 w-4" aria-hidden />
+                <span className="blob bg-orange -top-1 -right-1 h-4 w-4" aria-hidden />
                 <span className="blob bg-green -bottom-1 left-1 h-3 w-3" aria-hidden />
               </div>
               <p className="max-w-56 font-display text-[11px] font-bold tracking-[3px] text-blue uppercase sm:max-w-none">
@@ -66,14 +59,14 @@ export default function Home() {
               deliver measurable operational excellence across global supply chains — from {profile.location}.
             </motion.p>
 
-            <motion.p variants={item} className="mt-3 flex items-center gap-2 text-sm font-medium text-purple italic">
+            <motion.p variants={item} className="mt-3 flex items-center gap-2 text-sm font-medium text-green italic">
               <BatIcon className="w-6" />
               {profile.batLine}
             </motion.p>
 
             <motion.div variants={item} className="relative mt-7 flex flex-wrap items-center gap-3">
               {/* confetti dots near CTAs, per the brand guide */}
-              <span className="blob bg-yellow -top-5 left-36 h-3 w-3" aria-hidden />
+              <span className="blob bg-orange -top-5 left-36 h-3 w-3" aria-hidden />
               <span className="blob bg-green -bottom-4 left-16 h-2.5 w-2.5" aria-hidden />
               <Magnetic>
                 <a
@@ -89,7 +82,7 @@ export default function Home() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="grad-orange inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-display text-sm font-bold text-white shadow-[0_8px_24px_rgba(244,121,32,0.4)] transition-transform hover:-translate-y-0.5"
+                  className="grad-orange inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-display text-sm font-bold text-white shadow-[0_8px_24px_rgba(236,107,30,0.38)] transition-transform hover:-translate-y-0.5"
                 >
                   <Linkedin className="w-4" />
                   Connect on LinkedIn

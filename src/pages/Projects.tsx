@@ -8,13 +8,21 @@ function ProjectCard({ project }: { project: PassionProject }) {
     <div
       className={`${grad} relative flex h-full flex-col overflow-hidden rounded-[20px] border border-white/20 p-6 shadow-[0_10px_30px_rgba(26,86,196,0.28)] sm:p-8`}
     >
-      <span className="blob blob-soft bg-sky -top-14 -right-12 h-40 w-40 opacity-60" aria-hidden />
-      <span className="blob bg-yellow bottom-6 right-8 h-3 w-3" aria-hidden />
+      <span className="blob blob-soft bg-white/25 -top-14 -right-12 h-40 w-40" aria-hidden />
 
-      <p className="relative font-display text-[11px] font-bold tracking-[3px] text-yellow uppercase">
+      <p className="relative font-display text-[11px] font-bold tracking-[3px] text-white/80 uppercase">
         Product management by day · shipping by night
       </p>
-      <h3 className="relative mt-2 font-display text-2xl font-extrabold text-white sm:text-3xl">{project.name}</h3>
+      <div className="relative mt-2 flex items-center gap-3">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full border-[3px] border-blue bg-white shadow-[0_4px_0_rgba(28,34,51,0.18)]">
+          <img
+            src={`${import.meta.env.BASE_URL}${project.logo}`}
+            alt={`${project.name} logo`}
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <h3 className="font-display text-2xl font-extrabold text-white sm:text-3xl">{project.name}</h3>
+      </div>
       <p className="relative mt-1.5 text-sm font-semibold text-white/90 sm:text-base">{project.tagline}</p>
       <p className="relative mt-3 flex-1 text-[13px] leading-relaxed text-white/85 sm:text-sm">{project.description}</p>
 
@@ -31,7 +39,7 @@ function ProjectCard({ project }: { project: PassionProject }) {
           href={project.liveUrl}
           target="_blank"
           rel="noreferrer"
-          className="grad-orange inline-flex items-center gap-2 rounded-full px-5 py-3 font-display text-sm font-bold text-white shadow-[0_8px_24px_rgba(244,121,32,0.4)] transition-transform hover:-translate-y-0.5"
+          className="grad-orange inline-flex items-center gap-2 rounded-full px-5 py-3 font-display text-sm font-bold text-white shadow-[0_8px_24px_rgba(236,107,30,0.38)] transition-transform hover:-translate-y-0.5"
         >
           {project.liveLabel}
           <ArrowUpRight className="w-4 shrink-0" />

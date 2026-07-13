@@ -2,7 +2,7 @@ import { Section } from "../components/Section";
 import { TiltCard } from "../components/TiltCard";
 import { publications } from "../data/profile";
 
-const TAG_COLORS = ["bg-purple", "bg-sky", "bg-green", "bg-orange"];
+const TAG_COLORS = ["bg-blue", "bg-green", "bg-orange"];
 
 export default function Research() {
   return (
@@ -24,11 +24,11 @@ export default function Research() {
           <TiltCard key={publication.title} className="h-full">
             <div className="relative overflow-hidden p-5 sm:p-6">
               <span
-                className={`blob -right-6 -bottom-6 h-14 w-14 opacity-90 ${TAG_COLORS[i % 4]}`}
+                className={`blob -right-6 -bottom-6 h-14 w-14 opacity-90 ${TAG_COLORS[i % TAG_COLORS.length]}`}
                 aria-hidden
               />
               <span
-                className={`rounded-full px-3 py-1 font-display text-[10px] font-bold tracking-wide text-white uppercase ${TAG_COLORS[i % 4]}`}
+                className={`rounded-full px-3 py-1 font-display text-[10px] font-bold tracking-wide text-white uppercase ${TAG_COLORS[i % TAG_COLORS.length]}`}
               >
                 {publication.tag}
               </span>

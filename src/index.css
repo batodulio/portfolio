@@ -6,55 +6,51 @@
   --font-display: "Baloo 2", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
-  /* IceBrk brand palette — from the portfolio branding guide */
+  /* Brand palette — deliberately limited to three hues: blue, green, orange */
   --color-blue: #1a56c4;
-  --color-sky: #38b6ff;
-  --color-orange: #f47920;
+  --color-blue-soft: #3f82e6;
+  --color-orange: #ec6b1e;
+  --color-orange-soft: #f79433;
   --color-green: #00a651;
-  --color-yellow: #ffd23f;
-  --color-purple: #8338ec;
+  --color-green-soft: #2fbd72;
 
-  /* Light theme (default) — Cloud White world */
-  --color-page: #fffdf7;
+  /* Light theme (default) — clean, professional Cloud White */
+  --color-page: #fbfbfd;
   --color-card: #ffffff;
-  --color-ink: #22223b;
-  --color-soft: #8c8a7e;
-  --color-line: #f2efe4;
+  --color-ink: #1c2233;
+  --color-soft: #5f6672;
+  --color-line: #e9ecf2;
 }
 
 :root {
   color-scheme: light;
-  --shadow-chunky: 0 6px 0 rgba(34, 34, 59, 0.08);
-  --glare: rgba(26, 86, 196, 0.06);
-  --glass-bg: linear-gradient(150deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
-  --glass-border: rgba(34, 34, 59, 0.1);
-  --glass-shadow: 0 8px 28px rgba(34, 34, 59, 0.1);
-  --page-bg:
-    radial-gradient(900px circle at 12% -10%, rgba(56, 182, 255, 0.22), transparent 60%),
-    radial-gradient(1000px circle at 105% 110%, rgba(244, 121, 32, 0.16), transparent 60%),
-    radial-gradient(700px circle at 85% -5%, rgba(131, 56, 236, 0.1), transparent 55%),
-    #fffdf7;
+  --shadow-chunky: 0 6px 0 rgba(28, 34, 51, 0.06);
+  --glare: rgba(26, 86, 196, 0.05);
+  --glass-bg: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72));
+  --glass-border: rgba(28, 34, 51, 0.08);
+  --glass-shadow: 0 10px 30px rgba(28, 34, 51, 0.07);
+  /* Clean diagonal gradient wash through the three brand hues */
+  --page-bg: linear-gradient(140deg, #e4edfb 0%, #fbfbfd 44%, #f1f7f1 66%, #fdece0 100%);
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  /* Readable variant of IceBrk Blue for text/labels on dark surfaces */
-  --color-blue: #5e93ff;
-  --color-page: #22223b;
-  --color-card: #2b2b47;
-  --color-ink: #fffdf7;
-  --color-soft: #b9b7c9;
-  --color-line: #3a3a57;
+  /* Readable variants of the brand hues for text/labels on dark surfaces */
+  --color-blue: #6c9bff;
+  --color-blue-soft: #4f82ea;
+  --color-green: #2fbd72;
+  --color-orange: #f79433;
+  --color-page: #171a26;
+  --color-card: #232838;
+  --color-ink: #f4f6fb;
+  --color-soft: #a9b0c0;
+  --color-line: #333a4d;
   --shadow-chunky: 0 6px 0 rgba(0, 0, 0, 0.28);
-  --glare: rgba(255, 255, 255, 0.06);
-  --glass-bg: linear-gradient(150deg, rgba(56, 56, 92, 0.55), rgba(37, 37, 64, 0.35));
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  --page-bg:
-    radial-gradient(900px circle at 12% -10%, rgba(26, 86, 196, 0.35), transparent 60%),
-    radial-gradient(1000px circle at 105% 110%, rgba(131, 56, 236, 0.28), transparent 60%),
-    radial-gradient(700px circle at 85% -5%, rgba(56, 182, 255, 0.14), transparent 55%),
-    #191930;
+  --glare: rgba(255, 255, 255, 0.05);
+  --glass-bg: linear-gradient(150deg, rgba(45, 51, 71, 0.6), rgba(30, 35, 50, 0.42));
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+  --page-bg: linear-gradient(140deg, #182741 0%, #12141d 46%, #131a17 66%, #201811 100%);
 }
 
 html,
@@ -67,6 +63,9 @@ html {
   background-color: var(--color-page);
   /* Single compact page: the document scrolls, anchors jump smoothly. */
   scroll-behavior: smooth;
+  /* Guard against stray horizontal overflow. Kept on the root scroller (not an
+     inner wrapper) so the sticky nav still freezes to the top on scroll. */
+  overflow-x: hidden;
 }
 
 body {
@@ -113,32 +112,35 @@ body {
   box-shadow: var(--glass-shadow);
 }
 
-/* Gradient fills — brand colors, modern finish */
+/* Gradient fills — restrained tonal blends within the three brand hues */
 .grad-blue {
-  background-image: linear-gradient(120deg, #1a56c4, #38b6ff);
+  background-image: linear-gradient(120deg, #1a56c4, #3f82e6);
+}
+.grad-green {
+  background-image: linear-gradient(120deg, #00934a, #2fbd72);
 }
 .grad-orange {
-  background-image: linear-gradient(120deg, #f47920, #ffd23f);
+  background-image: linear-gradient(120deg, #d95e17, #f79433);
 }
 .grad-celebrate {
-  background-image: linear-gradient(130deg, rgba(26, 86, 196, 0.92), rgba(131, 56, 236, 0.88));
+  background-image: linear-gradient(130deg, rgba(20, 66, 152, 0.96), rgba(26, 86, 196, 0.9));
 }
 .grad-feature {
-  background-image: linear-gradient(135deg, rgba(26, 86, 196, 0.92), rgba(56, 182, 255, 0.82));
+  background-image: linear-gradient(135deg, rgba(20, 66, 152, 0.96), rgba(63, 130, 230, 0.9));
 }
 .grad-feature-green {
-  background-image: linear-gradient(135deg, rgba(0, 166, 81, 0.92), rgba(56, 182, 255, 0.82));
+  background-image: linear-gradient(135deg, rgba(0, 130, 64, 0.96), rgba(47, 189, 114, 0.9));
 }
 
 .text-grad {
-  background-image: linear-gradient(100deg, #38b6ff, #1a56c4 55%, #8338ec);
+  background-image: linear-gradient(100deg, #1a56c4, #3f82e6 55%, #00a651);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-grad-warm {
-  background-image: linear-gradient(100deg, #f47920, #ffd23f);
+  background-image: linear-gradient(100deg, #d95e17, #f79433);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

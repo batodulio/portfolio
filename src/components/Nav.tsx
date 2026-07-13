@@ -9,7 +9,7 @@ export function Nav({ active }: { active: string }) {
     <header className="sticky top-0 z-40 flex shrink-0 justify-center px-4 pt-4 pb-2">
       <nav className="card flex max-w-full flex-wrap items-center justify-center gap-x-1 gap-y-0.5 rounded-[24px] px-2 py-1.5 sm:rounded-full sm:pl-4">
         <a href="#home" className="group mr-1 flex items-center gap-2" aria-label="Home">
-          <motion.span whileHover={{ scale: 1.15, rotate: -6 }} className="text-blue dark:text-sky">
+          <motion.span whileHover={{ scale: 1.15, rotate: -6 }} className="text-blue">
             <BatIcon className="w-8" />
           </motion.span>
           <span className="hidden font-display text-sm font-bold tracking-wide text-ink lg:block">
