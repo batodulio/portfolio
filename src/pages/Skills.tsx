@@ -2,7 +2,7 @@ import { Section } from "../components/Section";
 import { TiltCard } from "../components/TiltCard";
 import { topSkills, skillGroups } from "../data/profile";
 
-const GROUP_ACCENTS = ["var(--color-blue)", "var(--color-green)", "var(--color-orange)", "var(--color-purple)"];
+const GROUP_ACCENTS = ["var(--color-blue)", "var(--color-green)", "var(--color-orange)"];
 
 export default function Skills() {
   return (
@@ -27,10 +27,10 @@ export default function Skills() {
         <div className="grid gap-4 md:grid-cols-2">
           {skillGroups.map((group, i) => (
             <TiltCard key={group.title} className="h-full">
-              <div className="relative overflow-hidden p-5" style={{ borderTop: `6px solid ${GROUP_ACCENTS[i % 4]}` }}>
+              <div className="relative overflow-hidden p-5" style={{ borderTop: `6px solid ${GROUP_ACCENTS[i % GROUP_ACCENTS.length]}` }}>
                 <span
                   className="blob -right-8 -bottom-8 h-16 w-16 opacity-90"
-                  style={{ background: GROUP_ACCENTS[i % 4] }}
+                  style={{ background: GROUP_ACCENTS[i % GROUP_ACCENTS.length] }}
                   aria-hidden
                 />
                 <h3 className="font-display text-base font-bold text-ink">{group.title}</h3>

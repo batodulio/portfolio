@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { BatIcon } from "./BatIcon";
 
-const FLOCK_COLORS = ["text-blue", "text-sky", "text-orange", "text-green", "text-purple", "text-yellow"];
+const FLOCK_COLORS = ["text-blue", "text-green", "text-orange"];
 
 interface Bat {
   id: number;

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 type Theme = "light" | "dark";
 
 export function ThemeToggle() {
-  // Always boot in dark mode; the toggle applies for the current visit only.
-  const [theme, setTheme] = useState<Theme>("dark");
+  // Boot in light mode; the toggle applies for the current visit only.
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -15,7 +15,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="flex h-9 w-9 items-center justify-center rounded-full bg-yellow text-[#22223B] transition-transform hover:scale-110"
+      className="flex h-9 w-9 items-center justify-center rounded-full bg-line text-ink transition-colors hover:bg-blue hover:text-white"
     >
       {theme === "dark" ? (
         <svg viewBox="0 0 24 24" className="w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

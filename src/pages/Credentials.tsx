@@ -3,7 +3,7 @@ import { TiltCard } from "../components/TiltCard";
 import { ArrowUpRight, Award, Mic } from "../components/Icons";
 import { certifications, ceoAward, honors, education, speaking } from "../data/profile";
 
-const CERT_COLORS = ["text-blue", "text-green", "text-orange", "text-purple", "text-sky"];
+const CERT_COLORS = ["text-blue", "text-green", "text-orange"];
 
 export default function Credentials() {
   return (
@@ -18,12 +18,10 @@ export default function Credentials() {
     >
       <div className="space-y-5">
         {/* Celebration moment — P&G CEO Award */}
-        <div className="grad-celebrate relative overflow-hidden rounded-[20px] border border-white/20 p-6 shadow-[0_12px_36px_rgba(131,56,236,0.35)] backdrop-blur-md sm:p-7">
-          <span className="blob bg-yellow -top-8 right-8 h-24 w-24 opacity-90" aria-hidden />
-          <span className="blob bg-sky -right-6 -bottom-10 h-28 w-28 opacity-90" aria-hidden />
-          <span className="blob bg-green top-1/2 left-8 h-3.5 w-3.5" aria-hidden />
-          <span className="blob bg-orange top-[20%] left-[45%] h-2.5 w-2.5" aria-hidden />
-          <p className="relative font-display text-[11px] font-bold tracking-[3px] text-yellow uppercase">
+        <div className="grad-celebrate relative overflow-hidden rounded-[20px] border border-white/15 p-6 shadow-[0_14px_36px_rgba(26,86,196,0.28)] sm:p-7">
+          <span className="blob blob-soft bg-white/15 -top-8 right-8 h-24 w-24" aria-hidden />
+          <span className="blob blob-soft bg-white/10 -right-6 -bottom-10 h-28 w-28" aria-hidden />
+          <p className="relative font-display text-[11px] font-bold tracking-[3px] text-white/80 uppercase">
             Featured recognition
           </p>
           <h3 className="relative mt-1 max-w-md font-display text-2xl font-extrabold text-white sm:text-3xl">
@@ -52,9 +50,9 @@ export default function Credentials() {
           <TiltCard className="h-full">
             <div
               className="relative h-full overflow-hidden p-5 sm:p-6"
-              style={{ borderTop: "6px solid var(--color-yellow)" }}
+              style={{ borderTop: "6px solid var(--color-orange)" }}
             >
-              <span className="blob bg-yellow -right-8 -bottom-8 h-16 w-16 opacity-90" aria-hidden />
+              <span className="blob bg-orange -right-8 -bottom-8 h-16 w-16 opacity-90" aria-hidden />
               <p className="font-display text-[11px] font-bold tracking-[3px] text-orange uppercase">
                 Honors & Awards
               </p>
@@ -101,7 +99,7 @@ export default function Credentials() {
             {speaking.map((talk) => (
               <TiltCard key={talk.url} className="h-full">
                 <div className="relative flex h-full flex-col overflow-hidden p-5 sm:p-6">
-                  <span className="blob blob-soft bg-purple -top-10 -right-10 h-28 w-28 opacity-50" aria-hidden />
+                  <span className="blob blob-soft bg-blue -top-10 -right-10 h-28 w-28 opacity-30" aria-hidden />
                   <div className="relative flex items-center gap-3">
                     <span className="grad-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl text-white">
                       <Mic className="w-5" />

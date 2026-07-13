@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { AnimatedBackground } from "./components/AnimatedBackground";
 import { BatCursor } from "./components/BatCursor";
 import { BatSwarm } from "./components/BatSwarm";
 import { Nav } from "./components/Nav";
@@ -48,8 +47,7 @@ export default function App() {
   const active = useScrollSpy(SECTIONS.map((s) => s.id));
 
   return (
-    <div className="relative flex min-h-dvh flex-col overflow-x-hidden">
-      <AnimatedBackground />
+    <div className="relative flex min-h-dvh flex-col">
       <BatCursor />
       <BatSwarm trigger={active} />
       <Nav active={active} />
