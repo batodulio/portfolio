@@ -41,15 +41,40 @@ export const pillars: Pillar[] = [
   },
 ];
 
-export const passionProject = {
-  name: "IceBrk",
-  tagline: "Launch a ready-made, fully brandable party game in minutes.",
-  description:
-    "A passion project: a web platform of customizable icebreaker and party games for corporate events, schools, and social gatherings. Every game ships with a live Game Arena, a customization studio, and shared utilities like timers, team setup, and scorecards — with a library spanning Jeopardy, Would You Rather, Two Truths and a Lie, Bingo, and Scavenger Hunt.",
-  tech: ["React", "Vite", "TypeScript", "Vercel"],
-  liveUrl: "https://icebrk.vercel.app/",
-  repoUrl: "https://github.com/batodulio/icebrk",
-};
+export interface PassionProject {
+  name: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  liveUrl: string;
+  liveLabel: string;
+  repoUrl?: string;
+  accent: "blue" | "green";
+}
+
+export const passionProjects: PassionProject[] = [
+  {
+    name: "IceBrk",
+    tagline: "Launch a ready-made, fully brandable party game in minutes.",
+    description:
+      "A web platform of customizable icebreaker and party games for corporate events, schools, and social gatherings — each game ships with a live Game Arena, a customization studio, and shared utilities like timers, team setup, and scorecards. Library spans Jeopardy, Would You Rather, Two Truths and a Lie, Bingo, and Scavenger Hunt.",
+    tech: ["React", "Vite", "TypeScript", "Vercel"],
+    liveUrl: "https://icebrk.vercel.app/",
+    liveLabel: "Play it live",
+    repoUrl: "https://github.com/batodulio/icebrk",
+    accent: "blue",
+  },
+  {
+    name: "RunWalkRun",
+    tagline: "Structure every run into timed run–walk–run intervals.",
+    description:
+      "A lightweight interval-training companion built around the run-walk-run method: set your run and walk durations, follow the timed cues, and build endurance while going the distance with less strain.",
+    tech: ["React", "Vite", "TypeScript", "PostgreSQL", "Vercel"],
+    liveUrl: "https://runwalkrun.vercel.app/",
+    liveLabel: "Open the app",
+    accent: "green",
+  },
+];
 
 export const techMarquee = [
   "Microsoft Azure",

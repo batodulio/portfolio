@@ -1,4 +1,4 @@
-import { PanelPage } from "../components/PanelPage";
+import { Section } from "../components/Section";
 import { TiltCard } from "../components/TiltCard";
 import { ArrowUpRight, Award, Mic } from "../components/Icons";
 import { certifications, ceoAward, honors, education, speaking } from "../data/profile";
@@ -7,7 +7,8 @@ const CERT_COLORS = ["text-blue", "text-green", "text-orange", "text-purple", "t
 
 export default function Credentials() {
   return (
-    <PanelPage
+    <Section
+      id="credentials"
       label="02 — Credentials"
       title={
         <>
@@ -126,6 +127,6 @@ export default function Credentials() {
           </div>
         </div>
       </div>
-    </PanelPage>
+    </Section>
   );
 }

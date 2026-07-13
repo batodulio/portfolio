@@ -1,4 +1,4 @@
-import { PanelPage } from "../components/PanelPage";
+import { Section } from "../components/Section";
 import { TiltCard } from "../components/TiltCard";
 import { topSkills, skillGroups } from "../data/profile";
 
@@ -6,7 +6,8 @@ const GROUP_ACCENTS = ["var(--color-blue)", "var(--color-green)", "var(--color-o
 
 export default function Skills() {
   return (
-    <PanelPage
+    <Section
+      id="skills"
       label="04 — Skills"
       title={
         <>
@@ -48,6 +49,6 @@ export default function Skills() {
           ))}
         </div>
       </div>
-    </PanelPage>
+    </Section>
   );
 }

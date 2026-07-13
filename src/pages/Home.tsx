@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { PageTransition } from "../components/PageTransition";
 import { TiltCard } from "../components/TiltCard";
 import { Magnetic } from "../components/Magnetic";
 import { BatIcon } from "../components/BatIcon";
@@ -29,13 +27,13 @@ const item = {
 
 export default function Home() {
   return (
-    <PageTransition>
-      <div className="mx-auto flex h-full w-full max-w-6xl flex-col px-5 sm:px-8">
+    <section id="home" className="scroll-mt-24">
+      <div className="mx-auto flex w-full max-w-6xl flex-col px-6 pt-6 sm:px-8 lg:min-h-[calc(100dvh-5.5rem)]">
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="panel-scroll grid min-h-0 flex-1 content-center gap-6 py-4 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-10"
+          className="grid flex-1 content-center gap-8 py-4 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-10"
         >
           {/* ---------- Intro ---------- */}
           <div className="relative">
@@ -78,13 +76,13 @@ export default function Home() {
               <span className="blob bg-yellow -top-5 left-36 h-3 w-3" aria-hidden />
               <span className="blob bg-green -bottom-4 left-16 h-2.5 w-2.5" aria-hidden />
               <Magnetic>
-                <Link
-                  to="/experience"
+                <a
+                  href="#experience"
                   className="grad-blue group inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-display text-sm font-bold text-white shadow-[0_8px_24px_rgba(26,86,196,0.4)] transition-transform hover:-translate-y-0.5"
                 >
                   Explore the work
                   <ArrowUpRight className="w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
+                </a>
               </Magnetic>
               <Magnetic>
                 <a
@@ -130,7 +128,7 @@ export default function Home() {
         </motion.div>
 
         {/* ---------- Tech marquee ---------- */}
-        <div className="shrink-0 pb-2">
+        <div className="shrink-0 pb-6">
           <div className="marquee">
             <div className="marquee-track py-1">
               {[...techMarquee, ...techMarquee].map((tech, i) => (
@@ -145,6 +143,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </PageTransition>
+    </section>
   );
 }

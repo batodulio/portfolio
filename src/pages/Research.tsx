@@ -1,4 +1,4 @@
-import { PanelPage } from "../components/PanelPage";
+import { Section } from "../components/Section";
 import { TiltCard } from "../components/TiltCard";
 import { publications } from "../data/profile";
 
@@ -6,7 +6,8 @@ const TAG_COLORS = ["bg-purple", "bg-sky", "bg-green", "bg-orange"];
 
 export default function Research() {
   return (
-    <PanelPage
+    <Section
+      id="research"
       label="05 — Research"
       title={
         <>
@@ -38,6 +39,6 @@ export default function Research() {
           </TiltCard>
         ))}
       </div>
-    </PanelPage>
+    </Section>
   );
 }

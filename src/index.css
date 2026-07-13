@@ -60,21 +60,26 @@
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 
 html {
   background-color: var(--color-page);
-  /* The site is app-like: pages fit the viewport, no document scrolling. */
-  overflow: hidden;
+  /* Single compact page: the document scrolls, anchors jump smoothly. */
+  scroll-behavior: smooth;
 }
 
 body {
   @apply text-ink font-body antialiased;
   background: var(--page-bg);
   background-attachment: fixed;
-  overflow: hidden;
   transition: color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Native cursor is hidden only while the JS bat cursor is mounted. */
@@ -100,8 +105,9 @@ body {
 
 .card {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* Slight frost only — keeps content behind the glass readable, not hazy. */
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   box-shadow: var(--glass-shadow);
@@ -120,6 +126,9 @@ body {
 .grad-feature {
   background-image: linear-gradient(135deg, rgba(26, 86, 196, 0.92), rgba(56, 182, 255, 0.82));
 }
+.grad-feature-green {
+  background-image: linear-gradient(135deg, rgba(0, 166, 81, 0.92), rgba(56, 182, 255, 0.82));
+}
 
 .text-grad {
   background-image: linear-gradient(100deg, #38b6ff, #1a56c4 55%, #8338ec);
@@ -135,9 +144,10 @@ body {
   color: transparent;
 }
 
-/* Large ambient blobs render soft behind the glass */
+/* Large ambient blobs render soft behind the glass — lightened so the
+   background reads as a subtle wash rather than a heavy blur. */
 .blob-soft {
-  filter: blur(46px);
+  filter: blur(30px);
 }
 
 /* ---------- Confetti shapes (brand shape language) ---------- */
